@@ -116,6 +116,7 @@ curl -i -X DELETE http://127.0.0.1:8080/api/v1/books/del/{id} В ответе б
 - Приложение возвращает значение hostname:
 
 curl -X GET http://127.0.0.1:8080/api/v1/status ______{"hostname": "LAPTOP-3IRCU5BM"}
+___________________________________________________________________________________________________________________________________________________________________
 
 
 ![Build Status](https://travis-ci.com/Edan-ib/simapi.svg?branch=master)
