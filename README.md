@@ -121,7 +121,8 @@ ________________________________________________________________________________
 
 ![Build Status](https://travis-ci.com/Edan-ib/simapi.svg?branch=master)
 
-[![Build Status](https://travis-ci.com/Edan-ib/simapi.svg?branch=master](https://travis-ci.com/Edan-ib/simapi)
+[![Build Status](https://travis-ci.com/Edan-ib/simapi.svg?branch=master)](https://travis-ci.com/Edan-ib/simapi)
+
 
 
 # Лабораторная работа №3: CI/CD и деплой приложения в Heroku
