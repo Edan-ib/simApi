@@ -1,6 +1,0 @@
-dist: trusty # репозиторий внутри travis
-jdk: oraclejdk8
-language: java
-services:
-    - postgresql
-    - docker
