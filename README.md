@@ -118,7 +118,7 @@ curl -i -X DELETE http://127.0.0.1:8080/api/v1/books/del/{id} В ответе б
 curl -X GET http://127.0.0.1:8080/api/v1/status ______{"hostname": "LAPTOP-3IRCU5BM"}
 
 
-[![Build Status](https://travis-ci.com/Edan-ib/simapi.svg?branch=master)
+![Build Status](https://travis-ci.com/Edan-ib/simapi.svg?branch=master)
 
 # Лабораторная работа №3: CI/CD и деплой приложения в Heroku
 # Целью лабораторной работы: 
