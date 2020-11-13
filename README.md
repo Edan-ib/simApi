@@ -121,6 +121,9 @@ ________________________________________________________________________________
 
 ![Build Status](https://travis-ci.com/Edan-ib/simapi.svg?branch=master)
 
+[![Build Status](https://travis-ci.com/Edan-ib/simapi.svg?branch=master](https://travis-ci.com/Edan-ib/simapi)
+
+
 # Лабораторная работа №3: CI/CD и деплой приложения в Heroku
 # Целью лабораторной работы: 
 Знакомство с CI/CD и его реализацией на примере Travis CI и Heroku.
