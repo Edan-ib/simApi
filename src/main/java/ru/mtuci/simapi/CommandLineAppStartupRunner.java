@@ -18,6 +18,6 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 
     @Override
     public void run(String...args) throws Exception {
-        System.out.println(bookRepository.findById(1L).get( ));
+        //System.out.println(bookRepository.findById(1L).get( ));
     }
 }
