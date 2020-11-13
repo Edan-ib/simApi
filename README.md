@@ -119,7 +119,6 @@ curl -X GET http://127.0.0.1:8080/api/v1/status ______{"hostname": "LAPTOP-3IRCU
 ___________________________________________________________________________________________________________________________________________________________________
 
 
-![Build Status](https://travis-ci.com/Edan-ib/simapi.svg?branch=master)
 
 [![Build Status](https://travis-ci.com/Edan-ib/simapi.svg?branch=master)](https://travis-ci.com/Edan-ib/simapi)
 
