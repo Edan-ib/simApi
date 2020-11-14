@@ -13,7 +13,6 @@ env:
 script:
     - ./mvnw clean install -B
 
-
 after_success:
     - docker login -u $DOCKER_USER -p $DOCKER_PASS
     - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo "$TRAVIS_BRANCH"; fi`
@@ -27,4 +26,4 @@ deploy:
     app: simapi-m
 
     install: true
-    script:mvn clean package _ DskipTest=true
+    script:mvn clean package_DskipTest=true
