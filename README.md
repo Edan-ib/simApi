@@ -131,5 +131,4 @@ ________________________________________________________________________________
 
 [Ссылка на приложение](https://yadi.sk/d/xepkkE8Nz2VGKA)
 
-
-https://simapi-m.herokuapp.com/api/v1/status
+[Ссылка на развернутое приложение](https://simapi-m.herokuapp.com/api/v1/status)
