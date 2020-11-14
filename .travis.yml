@@ -5,16 +5,17 @@ services:
     - postgresql
     - docker
 before_install:
-    - chmod +x mvnw
+    - chmod a+x mvnw
 env:
     global:
         - secure: "fNDDuTOsB02ybM4b6gINAr+ddzmgdIsAcwwcclu6F1JoGqyWBdhhM1dPDgdZmCAAXnTLSwDZDWKhLqUIACdG8G1vGuaV6QW5Xor4U24vP2jlM6AjQrG04olqmJM08xsJbSOkXiv6QJEyWCGm1TNg6X1q2JVKtL0mizwTQqXwwiYbQYyAHOCC0N5lc0t7PpVgDVqHnvv/BJ/DydTvhok7g+F2dQIPcIxwKaG1kmDk9M0pR1o59+IBp4anAC2itjvKSrKK79/4RSRltKOat/paXiOYM4xAA0hfMDxXj0lXvYOLqiYFKk5H/xfjuqgnaimiA5K/I2OIDHMgtTyi8tBxvn5vqzioszTLxdVBovkglD6NDfQbO1sLDxmzOet5wHDkqLPY5VUUUhBRwSV4Bcy89EMrIvjw4Zi9dunucGoS+zWWZMxfNvyEO4BkhrGXnoo2wWD5RM+791K0mULi8lrzJ7u3De3jLC6nJIZCPkL+utjn341FlN992RrGhmAnKTRmrLn1IqFL8FURH0mYNB8/GcfD6SzDHn4s3Yrb+gjTSOr1Fdc/yGfj7EFoUQxlstN4g1npowsLNE1UrzAGUdnjYAL0igM5aDpPD7d4DI5qJJ+wunpgjkW8maakQa4zActGr1dLR9Z7GyLpq4iYK3PuF4E4LOrSCmt7D9EkI9nFbOw="
         - secure: "GkdiJWvDIWH3EVfW/6ysXnBrob4G92Pa6+g5iNOJIjHpuJOXz4WBhSG+Qe7bbKXwAmQwExRJTeuilBBu8G+c4DnXFm6ejV8ZGpWSGWruyQnFmiBCBosMcFweCEkvZe/p3jOdS6bd9cn5OirYmAWURS+USeJUBYK3Nd7s7V2ZmAJA+uBNC9TJGV4h8JZ3qh3Dn5DeZ5u15vobZUc6VyrwSjN09fCj/ekI8FJoFec3xiFJLEZLuWsZIp0KlVyqRLhThaj2T1vEGjv6J8+vcR8RsNUhnnt/cn5/1NKs8JEAdjkQD8jG0nvkCte1j1jwpWT7nQLHUocUy8hVZaEXn34COrwG5jYhZuTv9vhYDsBdohLRQpDr/snMjRpFcdvBTksxD7BduXaCJP7nV3+v/WQdBhUzOz2kiXJTIW+ggC9skxUErmsa9ejIFo0jhyBDMLMRjZ+0lKTjk739GcoAJALCYa4DxxcKjW0X6w6CYcD0flMUfUNrUopYUWqGOUpF+RR3zAchCjDpuUKUXGWLxDrXIPj50ZavZJtIDMNL5blurM39R2LQliOnPSOzPSvrJxgYRD5XuSguYnzrrFKwcjYA8viz2Gf28uSADnQqTzgxCwXlzwI8fQixMDQ3b5/DwrKv9wWUH1fX/Zd+qQJJgLal6COEjiq/Cy25Pjl+tRi9KD4="
         - secure: "mWAEo0ju9ak0ZcP8JS/HJzdN0mKDLG04qq3QqP0sMGAdqVaD/pEl0li8Up7OsELXU15ESzBh0xUva3gV/pPqRBn1LfG3BvZAZdb/wdekbkeZyj08IWVqV6cxpo/G2THe6Gf7lg5c3/waV99jwTb4LFIkMnxuYwFwUPwvEk5ToZ5WwXagnvb9MFIxls6GBs8LYghGpi4xd/gqnAy2RVBx5SQCf205kLYwRwWUUfoe/cPUzxTArAeyDuzGUnUPJ0sO3gwqaEKcPJDaVABu7xUDVqswsx8AnUIYECHpr7oHfIlV7uO6+DOa+JiT3yViIrbHj7Mcc85jDp3YX+BueJbqwMmOe1YvAkdlM5JEYiCEn9uEVLSP8N9orVgMyGCDxUAoQwpjYH215Z5406MrOg7tVssuicvkZTYPOsLTuYZRZnDHCnNcnKjly50YMRZu09CVGi+RXF4hUcroGFs22cmYdkbYJKKrd8pxUJ5Kf35BntqcuAGLW+QQgQbb/asIkKKTUJ1IOq23LuSZKVprUUazQXgqyvfN6CnWC8XVFDxKxMlzcZJKREAPhiVCW4dcB4sMTJn2EeSlrX3VJGxLfPYherKLxvC8Th4kJfVM67jNk9O5adIKbzXSVcwpHkhVOZLavWgJESgtoOCNQIytIoOFEbEyPZ08hiLYGcJmkbmvyO0="
         - COMMIT=${TRAVIS_COMMIT::7}
-
 script:
     - ./mvnw clean install -B
+install: true
+script:mvn clean package _ DskipTest=true
 
 after_success:
     - docker login -u $DOCKER_USER -p $DOCKER_PASS
@@ -23,7 +24,6 @@ after_success:
     - docker build -t $IMAGE_NAME:latest .
     - docker tag $IMAGE_NAME:latest $IMAGE_NAME:$TAG
     - docker push $IMAGE_NAME:$TAG
-
 deploy:
     provider: heroku
     api_key: $HEROKU_API_KEY
